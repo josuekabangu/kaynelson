@@ -14,6 +14,14 @@
           <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
           <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
           <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+          <li class="nav__item">
+            <% if user_signed_in? %>
+              <%= link_to "Log Out", destroy_user_session_path, class:"btn btn-outline-dark me-2", method: :delete %>
+            <% else %>
+              <%= link_to "Log In", new_user_session_path, type:"button", class:"btn btn-outline-dark me-2" %>
+              <%= link_to "Sign Up", new_user_registration_path, type:"button", class:"btn btn-warning" %>
+            <% end %>
+          </li>
         </ul>
       </div>
       <div class="nav__toggle" id="nav-toggle">
